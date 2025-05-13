@@ -1,8 +1,9 @@
 <script lang="ts">
+  import "./commentSection.scss";
+
   import { t } from "svelte-i18n";
 
   import TextArea from "./TextArea/TextArea.svelte";
-  import "./commentSection.scss";
 </script>
 
 <section class="comment-section">

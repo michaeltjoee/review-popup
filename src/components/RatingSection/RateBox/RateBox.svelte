@@ -1,8 +1,10 @@
 <script lang="ts">
+  import "./RateBox.scss";
+
   import { t } from "svelte-i18n";
+
   import { reviewFormState } from "../../../shared/reviewFormData.svelte";
   import type { RatingType } from "../../../shared/types";
-  import "./RateBox.scss";
 
   let { formKey = "findabilityRating" as RatingType } = $props();
 

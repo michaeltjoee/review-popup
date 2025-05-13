@@ -1,12 +1,13 @@
 <script lang="ts">
+  import "./RatingSection.scss";
+
+  import { getContext } from "svelte";
+  import type { MouseEventHandler } from "svelte/elements";
   import { t } from "svelte-i18n";
 
-  import RateBox from "./RateBox/RateBox.svelte";
-  import "./RatingSection.scss";
   import icClose from "../../assets/icons/tds_ic_cross_medium.svg";
   import icVerticalDivider from "../../assets/icons/vertical_separator.png";
-  import type { MouseEventHandler } from "svelte/elements";
-  import { getContext } from "svelte";
+  import RateBox from "./RateBox/RateBox.svelte";
 
   const handleCloseReviewModal: MouseEventHandler<HTMLButtonElement> =
     getContext("handleCloseReviewModal");

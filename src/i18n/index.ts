@@ -1,4 +1,4 @@
-import { init, addMessages } from "svelte-i18n";
+import { addMessages,init } from "svelte-i18n";
 
 import en from "./locales/en.json";
 import id from "./locales/id.json";

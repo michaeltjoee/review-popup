@@ -1,7 +1,9 @@
 <script lang="ts">
-  import { t } from "svelte-i18n";
-  import { reviewFormState } from "../../../shared/reviewFormData.svelte";
   import "./TextArea.scss";
+
+  import { t } from "svelte-i18n";
+
+  import { reviewFormState } from "../../../shared/reviewFormData.svelte";
 
   const MAX_LENGTH = 250;
   let isFocused = $state(false);

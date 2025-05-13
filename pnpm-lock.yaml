@@ -24,6 +24,9 @@ importers:
       eslint:
         specifier: ^9.26.0
         version: 9.26.0
+      eslint-plugin-simple-import-sort:
+        specifier: ^12.1.1
+        version: 12.1.1(eslint@9.26.0)
       eslint-plugin-svelte:
         specifier: ^3.6.0
         version: 3.6.0(eslint@9.26.0)(svelte@5.28.6)
@@ -913,6 +916,11 @@ packages:
   escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
+
+  eslint-plugin-simple-import-sort@12.1.1:
+    resolution: {integrity: sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA==}
+    peerDependencies:
+      eslint: '>=5.0.0'
 
   eslint-plugin-svelte@3.6.0:
     resolution: {integrity: sha512-IIf6Cj6yQuCwL7Qd8bX13BZspz+DQsOkClozMF9EkW20FSxI75Ndd5ZzbviCn32DdXRo9FUWXn+YMIL46qPOOg==}
@@ -2428,6 +2436,10 @@ snapshots:
   escape-html@1.0.3: {}
 
   escape-string-regexp@4.0.0: {}
+
+  eslint-plugin-simple-import-sort@12.1.1(eslint@9.26.0):
+    dependencies:
+      eslint: 9.26.0
 
   eslint-plugin-svelte@3.6.0(eslint@9.26.0)(svelte@5.28.6):
     dependencies:

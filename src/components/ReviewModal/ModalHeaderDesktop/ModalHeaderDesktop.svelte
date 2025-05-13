@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { t } from "svelte-i18n";
-  import { getContext } from "svelte";
-  import icClose from "../../../assets/icons/tds_ic_cross_medium.svg";
   import "./ModalHeaderDesktop.scss";
+
+  import { getContext } from "svelte";
   import type { MouseEventHandler } from "svelte/elements";
+  import { t } from "svelte-i18n";
+
+  import icClose from "../../../assets/icons/tds_ic_cross_medium.svg";
 
   const handleCloseReviewModal: MouseEventHandler<HTMLButtonElement> =
     getContext("handleCloseReviewModal");

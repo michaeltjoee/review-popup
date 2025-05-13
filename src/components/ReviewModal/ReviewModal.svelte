@@ -1,11 +1,14 @@
 <script lang="ts">
-  import { setContext } from "svelte";
-  import { t } from "svelte-i18n";
-  import ModalHeaderDesktop from "./ModalHeaderDesktop/ModalHeaderDesktop.svelte";
-  import RatingSection from "../RatingSection/RatingSection.svelte";
-  import CommentSection from "../CommentSection/CommentSection.svelte";
   import "./ReviewModal.scss";
+
+  import { setContext } from "svelte";
+  import type { MouseEventHandler } from "svelte/elements";
+  import { t } from "svelte-i18n";
+
   import { reviewFormState } from "../../shared/reviewFormData.svelte";
+  import CommentSection from "../CommentSection/CommentSection.svelte";
+  import RatingSection from "../RatingSection/RatingSection.svelte";
+  import ModalHeaderDesktop from "./ModalHeaderDesktop/ModalHeaderDesktop.svelte";
 
   let isOpen = $state(true);
   const { onUnmount } = $props();
@@ -16,10 +19,34 @@
       const appboyBridge = window.appboyBridge;
       if (appboyBridge) {
         appboyBridge.closeMessage();
+      } else {
+        console.error("Braze bridge not found");
       }
       onUnmount();
     }, 1000);
   });
+
+  const handleSubmit: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    const brazeBridge = window.brazeBridge;
+
+    if (brazeBridge) {
+      brazeBridge
+        .getUser()
+        .setCustomUserAttribute("survey_response", reviewFormState);
+    } else {
+      console.error("Braze bridge not found");
+    }
+
+    isOpen = false;
+    setTimeout(() => {
+      const appboyBridge = window.appboyBridge;
+      if (appboyBridge) {
+        appboyBridge.closeMessage();
+      }
+      onUnmount();
+    }, 1000);
+  };
 
   const { hasFilledForm } = $derived.by(() => {
     const hasRateFindability = Number(reviewFormState.findabilityRating) > 0;
@@ -44,6 +71,7 @@
 
       <footer class="modal-footer">
         <button
+          onclick={handleSubmit}
           disabled={!hasFilledForm}
           class={["btn-submit", { disabled: !hasFilledForm }]}
           type="button"
