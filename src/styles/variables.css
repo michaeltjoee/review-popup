@@ -1,15 +1,6 @@
 /* stylelint-disable custom-property-pattern */
 :root {
-  /* Blue */
-  --color-B900: #001833;
-  --color-B800: #002a58;
-  --color-B700: #003d81;
-  --color-B600: #004fa7;
-  --color-B500: #0064d2;
   --color-B400: #007cff;
-  --color-B300: #5baaff;
-  --color-B200: #a3cfff;
-  --color-B100: #e7f2ff;
 
   /* Neutral */
   --color-N900: #18191b;
@@ -22,7 +13,6 @@
   --color-N200: #d8dce8;
   --color-N100: #f4f7fe;
   --color-N50: #f8f9fd;
-  /* stylelint-disable-next-line color-hex-length */
   --color-N0: #ffffff;
 
   /**
@@ -32,12 +22,7 @@
   --font-color-high-emphasis: var(--color-N800);
   --font-color-low-emphasis: var(--color-N600);
   --font-color-disabled: var(--color-N400);
-  --font-color-alert: var(--color-R400);
   --font-color-activity: var(--color-B400);
-  --font-color-positive: var(--color-G500);
-  --font-color-price: var(--color-R500);
-  --font-color-analytics: var(--color-O500);
-  --font-color-usp: var(--color-T500);
   --font-color-invert: var(--color-N0);
 
   /* Typography weights */
@@ -139,19 +124,6 @@
   --font-size-xs: var(--font-size-mobile-sm);
   --line-height-xs: var(--line-height-mobile-sm);
 
-  /* Shadow & elevation */
-  --color-shadow-rgb: 48, 49, 53; /* Hex #303135 (color-N800) in RGB */
-
-  /**
-   * be careful when adding 4th length value (spread radius)
-   * because spread radius isn’t supported in `filter: drop-shadow`
-   * which is used by VoucherCard
-   */
-  /* stylelint-disable color-function-notation */
-  --elevation-1: 0 2px 8px rgba(var(--color-shadow-rgb), 0.16);
-  --elevation-2: 0 4px 12px rgba(var(--color-shadow-rgb), 0.2);
-  /* stylelint-enable color-function-notation */
-
   /* Spacing */
   --space-2: 2px;
   --space-4: 4px;
@@ -166,14 +138,6 @@
   --layout-32: 32px;
   --layout-48: 48px;
   --layout-64: 64px;
-  --layout-96: 96px;
-  --layout-128: 128px;
-
-  /* Z-index */
-  --z-loading-with-illustration: 1100;
-  --z-snackbar: 1001;
-  --z-bottom-sheet: 1000;
-  --z-tooltip: 999;
 
   /* Misc. */
   --color-blanket-rgb: 24, 25, 27; /* Hex #18191b (color-N900) in RGB */

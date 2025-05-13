@@ -8,7 +8,4 @@ addMessages("id", id);
 
 const htmlLang = document.documentElement.lang || "en";
 
-init({
-  fallbackLocale: "en",
-  initialLocale: htmlLang,
-});
+init({ fallbackLocale: "en", initialLocale: htmlLang });

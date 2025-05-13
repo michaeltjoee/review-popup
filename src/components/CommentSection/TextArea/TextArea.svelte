@@ -14,15 +14,13 @@
   function handleTextAreaBlur() {
     isFocused = false;
   }
-
-  $inspect(reviewFormState)
 </script>
 
 <div class={{ container: true, state_focused: isFocused }}>
   <div class="input_field_wrapper">
     <svg class="form_border_wrapper">
       <rect
-        class={"form_border"}
+        class="form_border"
         width="100%"
         height="100%"
         rx="8px"
@@ -30,7 +28,7 @@
         stroke-width="2px"
       />
       <rect
-        class={"form_focus_border"}
+        class="form_focus_border"
         width="100%"
         height="100%"
         rx="8px"
@@ -39,7 +37,7 @@
       />
     </svg>
 
-    <div class={"inline_input_wrapper"}>
+    <div class="inline_input_wrapper">
       <div class="input_inner_wrapper">
         <textarea
           id="reason"
@@ -51,9 +49,11 @@
           onfocus={handleTextAreaFocus}
         >
         </textarea>
-        <label class="low-emphasis" for="reason"> Write here (optional) </label>
-        <div data-invisible-label="__invisible_label" class={"invisible_label"}>
-          Write here (optional)
+        <label class="low-emphasis" for="reason"
+          >{$t("feedbackPlaceholder")}
+        </label>
+        <div data-invisible-label="__invisible_label" class="invisible_label">
+          {$t("feedbackPlaceholder")}
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@
   <h1 class="body-1">{$t(formKey)}</h1>
 
   <div class="stars-container">
-    {#each STARS as { label, value }}
+    {#each STARS as { label, value } (label)}
       <button
         onclick={() => {
           if (value === reviewFormState[formKey]) {
@@ -33,7 +33,7 @@
         class="btn-rate"
       >
         <svg
-          width="34"
+          width="32"
           height="32"
           viewBox="0 0 34 32"
           fill="none"

@@ -1,5 +1,13 @@
 <script lang="ts">
-  import Modal from "./components/Modal/Modal.svelte";
+  import ReviewModal from "./components/ReviewModal/ReviewModal.svelte";
+
+  let renderReviewModal = $state(true);
+
+  function handleUnmountReviewModal() {
+    renderReviewModal = false;
+  }
 </script>
 
-<Modal />
+{#if renderReviewModal}
+  <ReviewModal onUnmount={handleUnmountReviewModal} />
+{/if}
