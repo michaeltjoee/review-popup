@@ -11,19 +11,33 @@
   import ModalHeaderDesktop from "./ModalHeaderDesktop/ModalHeaderDesktop.svelte";
 
   let isOpen = $state(true);
+  let container: HTMLElement | null;
+
   const { onUnmount } = $props();
 
-  setContext("handleCloseReviewModal", () => {
+  const handleClose = () => {
     isOpen = false;
     setTimeout(() => {
       const appboyBridge = window.appboyBridge;
       if (appboyBridge) {
         appboyBridge.closeMessage();
-      } else {
-        console.error("Braze bridge not found");
       }
       onUnmount();
     }, 1000);
+  };
+
+  function handleClickOutside(
+    event: MouseEvent & { currentTarget: EventTarget & Document }
+  ) {
+    if (container && event.target) {
+      if (!container.contains(event.target as Node)) {
+        handleClose();
+      }
+    }
+  }
+
+  setContext("handleCloseReviewModal", () => {
+    handleClose();
   });
 
   const handleSubmit: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -38,14 +52,7 @@
       console.error("Braze bridge not found");
     }
 
-    isOpen = false;
-    setTimeout(() => {
-      const appboyBridge = window.appboyBridge;
-      if (appboyBridge) {
-        appboyBridge.closeMessage();
-      }
-      onUnmount();
-    }, 1000);
+    handleClose();
   };
 
   const { hasFilledForm } = $derived.by(() => {
@@ -56,10 +63,11 @@
   });
 </script>
 
+<svelte:document onclick={handleClickOutside} />
 <div class={["modal", { ["modal-closing"]: !isOpen }]}>
   <div class={["modal-wrapper", { ["modal-wrapper-closing"]: !isOpen }]}>
     <div class="modal-overlay"></div>
-    <section class="modal-popup">
+    <section bind:this={container} class="modal-popup">
       <ModalHeaderDesktop />
 
       <div class="modal-body">
